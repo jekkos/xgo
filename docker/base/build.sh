@@ -627,3 +627,8 @@ for dir in `ls /usr/local`; do
     rm -rf "/usr/local/$dir"
   fi
 done
+
+# DEBUG
+echo "Copy the built binaries to the project xgo-dist folder..."
+mkdir -p ./xgo-dist
+cp /build/* ./xgo-dist

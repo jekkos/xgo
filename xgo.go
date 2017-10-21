@@ -39,8 +39,8 @@ func init() {
 }
 
 // Cross compilation docker containers
-var dockerBase = "karalabe/xgo-base"
-var dockerDist = "karalabe/xgo-"
+var dockerBase = "ykyuen/xgo-base"
+var dockerDist = "ykyuen/xgo-"
 
 // Command line arguments to fine tune the compilation
 var (
@@ -300,7 +300,7 @@ func compile(image string, config *ConfigFlags, flags *BuildFlags, folder string
 		"-e", "TARGETS=" + strings.Replace(strings.Join(config.Targets, " "), "*", ".", -1),
 	}
 	for i := 0; i < len(locals); i++ {
-		args = append(args, []string{"-v", fmt.Sprintf("%s:%s:ro", locals[i], mounts[i])}...)
+		args = append(args, []string{"-v", fmt.Sprintf("%s:%s:rw", locals[i], mounts[i])}...)
 	}
 	args = append(args, []string{"-e", "EXT_GOPATH=" + strings.Join(paths, ":")}...)
 

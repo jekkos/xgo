@@ -1,3 +1,26 @@
+
+# About this forked repository
+
+The `xgo` in this forked repository is different from the original one with the following changes.
+
+1. Added `libpcap` library in the `xgo` base image.
+1. Make the `xgo` container mount point writable.
+1. Copy the built binary by `xgo` to a folder named `xgo-dist`.
+
+The purpose of this hacked version is for running `xgo` in **GitLab CI** pipeline which is used in the following **Docker** image.
+
+- [xgo-with-docker](https://hub.docker.com/r/ykyuen/xgo-with-docker/)
+
+## Avaliable version on Docker Hub
+
+- [xgo-1.6.2](https://hub.docker.com/r/ykyuen/xgo-1.6.2/)
+- [xgo-1.8.3](https://hub.docker.com/r/ykyuen/xgo-1.8.3/)
+- [xgo-1.8.4](https://hub.docker.com/r/ykyuen/xgo-1.8.4/)
+- [xgo-1.8.x -> xgo-1.8.4](https://hub.docker.com/r/ykyuen/xgo-1.8.x/)
+- [xgo-latest -> xgo-1.8.x](https://hub.docker.com/r/ykyuen/xgo-latest/)
+
+---
+
 # xgo - Go CGO cross compiler
 
 Although Go strives to be a cross platform language, cross compilation from one
