@@ -3,6 +3,6 @@
 #
 # Released under the MIT license.
 
-FROM ykyuen/xgo-1.8.4
+FROM jekkos/xgo-1.8.4
 
 MAINTAINER Péter Szilágyi <peterke@gmail.com>

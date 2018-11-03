@@ -407,12 +407,13 @@ for TARGET in $TARGETS; do
     if [ "$GO_VERSION" -lt 180 ]; then
       echo "Go version too low, skipping linux/mips..."
     else
-      echo "Compiling for linux/mips..."
-      CC=mips-linux-gnu-gcc-5 CXX=mips-linux-gnu-g++-5 HOST=mips-linux-gnu PREFIX=/usr/mips-linux-gnu $BUILD_DEPS /deps ${DEPS_ARGS[@]}
+        echo "Compiling for linux/mips (musl)..."
+      CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ HOST=mips-linux-musl PREFIX=/usr/mips-linux-musl-cross $BUILD_DEPS /deps ${DEPS_ARGS[@]}
       export PKG_CONFIG_PATH=/usr/mips-linux-gnu/lib/pkgconfig
+      export PATH=$PATH:/usr/mips-linux-musl-cross/bin
 
-      CC=mips-linux-gnu-gcc-5 CXX=mips-linux-gnu-g++-5 GOOS=linux GOARCH=mips CGO_ENABLED=1 go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK
-      CC=mips-linux-gnu-gcc-5 CXX=mips-linux-gnu-g++-5 GOOS=linux GOARCH=mips CGO_ENABLED=1 go build $V $X "${T[@]}" --ldflags="$V $LD" $BM -o "/build/$NAME-linux-mips`extension linux`" ./$PACK
+      CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK
+      CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go build $V $X "${T[@]}" --ldflags="$V $LD" $BM -o "/build/$NAME-linux-mips`extension linux`" ./$PACK
     fi
   fi
   if ([ $XGOOS == "." ] || [ $XGOOS == "linux" ]) && ([ $XGOARCH == "." ] || [ $XGOARCH == "mipsle" ]); then

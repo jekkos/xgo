@@ -3,7 +3,7 @@
 #
 # Released under the MIT license.
 
-FROM ykyuen/xgo-base
+FROM jekkos/xgo-base
 
 MAINTAINER Péter Szilágyi <peterke@gmail.com>
 

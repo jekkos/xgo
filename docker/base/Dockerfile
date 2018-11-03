@@ -38,6 +38,9 @@ RUN \
     make xz-utils cpio wget zip unzip p7zip git mercurial bzr texinfo help2man           \
     --no-install-recommends
 
+RUN wget https://musl.cc/mips-linux-musl-cross.tgz && \
+    tar -xvf mips-linux-musl-cross.tgz -C /usr
+    
 # Get libpcap-32 binaries from a DEB file
 RUN \
   mkdir -p /libpcap && \
@@ -53,7 +56,7 @@ RUN ./fetch.sh http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz 32d7526dde8f8
   mkdir -p /libpcap/amd64 && \
   tar -C /libpcap/amd64/ -xvf libpcap-1.8.1.tar.gz && \
   cd /libpcap/amd64/libpcap-1.8.1 && \
-  ./configure --enable-usb=no --enable-bluetooth=no --enable-dbus=no && \
+  ./configure --enable-usb=yes --enable-bluetooth=no --enable-dbus=no && \
   make
 
 # Fix any stock package issues

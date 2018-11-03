@@ -39,8 +39,8 @@ func init() {
 }
 
 // Cross compilation docker containers
-var dockerBase = "ykyuen/xgo-base"
-var dockerDist = "ykyuen/xgo-"
+var dockerBase = "jekkos/xgo-base"
+var dockerDist = "jekkos/xgo-"
 
 // Command line arguments to fine tune the compilation
 var (
