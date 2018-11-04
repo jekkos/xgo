@@ -56,7 +56,7 @@ RUN ./fetch.sh http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz 32d7526dde8f8
   mkdir -p /libpcap/amd64 && \
   tar -C /libpcap/amd64/ -xvf libpcap-1.8.1.tar.gz && \
   cd /libpcap/amd64/libpcap-1.8.1 && \
-  ./configure --enable-usb=yes --enable-bluetooth=no --enable-dbus=no && \
+  ./configure --enable-usb --enable-bluetooth=no --enable-dbus=no && \
   make
 
 # Fix any stock package issues
