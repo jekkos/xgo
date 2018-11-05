@@ -410,7 +410,6 @@ for TARGET in $TARGETS; do
         echo "Compiling for linux/mips (musl)..."
       CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ HOST=mips-linux-musl PREFIX=/usr/mips-linux-musl-cross $BUILD_DEPS /deps ${DEPS_ARGS[@]}
       export PKG_CONFIG_PATH=/usr/mips-linux-gnu/lib/pkgconfig
-      export PATH=$PATH:/usr/mips-linux-musl-cross/bin
 
       CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK
       CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go build $V $X "${T[@]}" --ldflags="$V $LD" $BM -o "/build/$NAME-linux-mips`extension linux`" ./$PACK

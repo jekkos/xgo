@@ -40,6 +40,7 @@ RUN \
 
 RUN wget https://musl.cc/mips-linux-musl-cross.tgz && \
     tar -xvf mips-linux-musl-cross.tgz -C /usr
+ENV PATH /usr/mips-linux-musl-cross/bin:$PATH
     
 # Get libpcap-32 binaries from a DEB file
 RUN \
