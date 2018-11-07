@@ -412,7 +412,7 @@ for TARGET in $TARGETS; do
       export PKG_CONFIG_PATH=/usr/mips-linux-gnu/lib/pkgconfig
 
       CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go get $V $X "${T[@]}" --ldflags="$V $LD" -d ./$PACK
-      CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go build $V $X "${T[@]}" --ldflags="$V $LD" $BM -o "/build/$NAME-linux-mips`extension linux`" ./$PACK
+      CC=mips-linux-musl-gcc CXX=mips-linux-musl-g++ GOOS=linux GOARCH=mips CGO_ENABLED=1 go build $V $X "${T[@]}" --gccgoflags="-I/libpcap/amd64/libpcap-1.8.1/pcap" --ldflags="$V $LD -L/libpcap/amd64/libpcap-1.8.1-pcap" $BM -o "/build/$NAME-linux-mips`extension linux`" ./$PACK
     fi
   fi
   if ([ $XGOOS == "." ] || [ $XGOOS == "linux" ]) && ([ $XGOARCH == "." ] || [ $XGOARCH == "mipsle" ]); then

@@ -60,6 +60,8 @@ RUN ./fetch.sh http://www.tcpdump.org/release/libpcap-1.8.1.tar.gz 32d7526dde8f8
   ./configure --enable-usb --enable-bluetooth=no --enable-dbus=no && \
   make
 
+ENV PATH /libpcap/amd64/libpcap-1.8.1/pcap:$PATH
+ENV PATH /libpcap/amd64/libpcap-1.8.1:$PATH
 # Fix any stock package issues
 RUN ln -s /usr/include/asm-generic /usr/include/asm
 
