@@ -61,12 +61,12 @@ a single command to compile a Go package to various platforms and architectures.
 Although you could build the container manually, it is available as an automatic
 trusted build from Docker's container registry (not insignificant in size):
 
-    docker pull karalabe/xgo-latest
+    docker pull jekkos/xgo-latest
 
 To prevent having to remember a potentially complex Docker command every time,
 a lightweight Go wrapper was written on top of it.
 
-    go get github.com/karalabe/xgo
+    go get github.com/jekkos/xgo
 
 ## Usage
 
